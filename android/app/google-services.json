@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "288826535965",
+    "project_id": "project-net-ninja",
+    "storage_bucket": "project-net-ninja.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:288826535965:android:4d337220db318a045456f4",
+        "android_client_info": {
+          "package_name": "com.example.flutter_firebase_chat"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNChA16pcOP71ESMpw_lYaDKdVXyxjdws"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:288826535965:android:bd8382faa7f0cd9c5456f4",
+        "android_client_info": {
+          "package_name": "com.peterwambuch.firebase_tut"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNChA16pcOP71ESMpw_lYaDKdVXyxjdws"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
