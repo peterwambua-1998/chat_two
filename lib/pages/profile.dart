@@ -1,8 +1,5 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import '../pages/profile_listener.dart';
-import '../services/database_service.dart';
-import 'package:provider/provider.dart';
 
 class Profile extends StatefulWidget {
   const Profile({super.key, required this.id});

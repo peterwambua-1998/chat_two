@@ -1,7 +1,5 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_firebase_chat/modals/user_modal.dart';
-import '../firebase_options.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthService with ChangeNotifier {

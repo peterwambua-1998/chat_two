@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_firebase_chat/modals/user_modal.dart';
 import 'package:flutter_firebase_chat/pages/home.dart';
 import 'package:flutter_firebase_chat/pages/register.dart';
-import 'package:flutter_firebase_chat/pages/splash_screen.dart';
 import 'package:flutter_firebase_chat/services/auth_service.dart';
 import './sign_in.dart';
 import 'package:provider/provider.dart';

@@ -35,63 +35,84 @@ class _SignInState extends State<SignIn> {
         title: const Text('Sign Up'),
       ),
       body: Padding(
-        padding: const EdgeInsets.fromLTRB(20, 25, 20, 0),
-        child: Column(
-          children: <Widget>[
-            Center(
-              child: SvgPicture.asset(
-                assetName,
-                semanticsLabel: 'Acme Logo',
-                width: 200.0,
-                height: 150.0,
-              ),
-            ),
-            const SizedBox(height: 30),
-            const Text(
-              'Welcome on board',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-            ),
-            const SizedBox(height: 10),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Text(
-                  'Create a free account or ',
-                  style: TextStyle(fontSize: 20),
+        padding: const EdgeInsets.fromLTRB(20, 10, 20, 0),
+        child: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+              Center(
+                child: SvgPicture.asset(
+                  assetName,
+                  semanticsLabel: 'Acme Logo',
+                  width: 200.0,
+                  height: 150.0,
                 ),
-                TextButton(
-                    onPressed: () {
-                      widget.toggleView();
-                    },
-                    child: Text(
-                      'Sign Up',
-                      style: TextStyle(
-                        color: Colors.purple[400],
-                        fontSize: 20.0,
-                        decoration: TextDecoration.underline,
-                        decorationStyle: TextDecorationStyle.solid
+              ),
+              const SizedBox(height: 30),
+              const Text(
+                'Welcome on board',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+              ),
+              const SizedBox(height: 10),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text(
+                    'Create a free account or ',
+                    style: TextStyle(fontSize: 20),
+                  ),
+                  TextButton(
+                      onPressed: () {
+                        widget.toggleView();
+                      },
+                      child: Text(
+                        'Sign Up',
+                        style: TextStyle(
+                          color: Colors.purple[400],
+                          fontSize: 20.0,
+                          decoration: TextDecoration.underline,
+                          decorationStyle: TextDecorationStyle.solid
+                        )
                       )
-                    )
-                )
-              ],
-            ),
-            Container(
-              child: Form(
-                key: _formKey,
-                child: Column(
-                  children: [
-                    SizedBox(height: 30.0),
-                    Padding(
-                      padding: EdgeInsets.only(
-                            bottom: MediaQuery.of(context).viewInsets.bottom),
-                      child: TextFormField(
-                        validator: (val) =>
-                            val!.isEmpty ? 'Enter an email' : null,
+                  )
+                ],
+              ),
+              Container(
+                child: Form(
+                  key: _formKey,
+                  child: Column(
+                    children: [
+                      SizedBox(height: 30.0),
+                      Padding(
+                        padding: EdgeInsets.only(
+                              bottom: MediaQuery.of(context).viewInsets.bottom),
+                        child: TextFormField(
+                          validator: (val) =>
+                              val!.isEmpty ? 'Enter an email' : null,
+                          onChanged: (val) {
+                            setState(() => email = val);
+                          },
+                          decoration: const InputDecoration(
+                            hintText: 'Email',
+                            fillColor: Colors.white,
+                            filled: true,
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white),
+                              borderRadius: BorderRadius.all(Radius.circular(40.0)),
+                            )
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 20.0),
+                      TextFormField(
+                        obscureText: true,
+                        validator: (val) => val!.length < 6
+                            ? 'Enter a password 6+ chars long'
+                            : null,
                         onChanged: (val) {
-                          setState(() => email = val);
+                          setState(() => password = val);
                         },
                         decoration: const InputDecoration(
-                          hintText: 'Email',
+                          hintText: 'Password',
                           fillColor: Colors.white,
                           filled: true,
                           enabledBorder: OutlineInputBorder(
@@ -100,64 +121,45 @@ class _SignInState extends State<SignIn> {
                           )
                         ),
                       ),
-                    ),
-                    SizedBox(height: 20.0),
-                    TextFormField(
-                      obscureText: true,
-                      validator: (val) => val!.length < 6
-                          ? 'Enter a password 6+ chars long'
-                          : null,
-                      onChanged: (val) {
-                        setState(() => password = val);
-                      },
-                      decoration: const InputDecoration(
-                        hintText: 'Password',
-                        fillColor: Colors.white,
-                        filled: true,
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.white),
-                          borderRadius: BorderRadius.all(Radius.circular(40.0)),
-                        )
-                      ),
-                    ),
-                    SizedBox(height: 30.0),
-                    SizedBox(
-                      width: 350,
-                      height: 50,
-                      child: TextButton(
-                        onPressed: () async {
-                          if (_formKey.currentState!.validate()) {
-                            var result = await context
-                                .read<AuthService>()
-                                .signInWithEmail(email, password);
-                            if (result == null) {
-                              setState(() {
-                                error = 'Wrong credentials';
-                              });
+                      SizedBox(height: 30.0),
+                      SizedBox(
+                        width: 350,
+                        height: 50,
+                        child: TextButton(
+                          onPressed: () async {
+                            if (_formKey.currentState!.validate()) {
+                              var result = await context
+                                  .read<AuthService>()
+                                  .signInWithEmail(email, password);
+                              if (result == null) {
+                                setState(() {
+                                  error = 'Wrong credentials';
+                                });
+                              }
                             }
-                          }
-                        },
-                        style: TextButton.styleFrom(
-                          backgroundColor: Colors.purple[400],
-                          //maximumSize: const Size(10.0, 10.0)
+                          },
+                          style: TextButton.styleFrom(
+                            backgroundColor: Colors.purple[400],
+                            //maximumSize: const Size(10.0, 10.0)
+                          ),
+                          child: const Text(
+                            'Sign In',
+                            style: TextStyle(color: Colors.white),
+                          )
                         ),
-                        child: const Text(
-                          'Sign In',
-                          style: TextStyle(color: Colors.white),
-                        )
                       ),
-                    ),
-                    
-                  ],
+                      
+                    ],
+                  ),
                 ),
               ),
-            ),
-            const SizedBox(
-              height: 20.0,
-            ),
-            Text(error,
-                style: const TextStyle(color: Colors.red, fontSize: 14.0))
-          ],
+              // const SizedBox(
+              //   height: 20.0,
+              // ),
+              // Text(error,
+              //     style: const TextStyle(color: Colors.red, fontSize: 14.0))
+            ],
+          ),
         ),
       ),
     );

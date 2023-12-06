@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_firebase_chat/pages/sign_in.dart';
 import 'package:flutter_firebase_chat/pages/wrapper.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
