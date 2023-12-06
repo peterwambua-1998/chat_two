@@ -5,6 +5,7 @@ import 'package:flutter_firebase_chat/pages/levels.dart';
 import 'package:flutter_firebase_chat/pages/profile.dart';
 import 'package:flutter_firebase_chat/services/auth_service.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_firebase_chat/pages/settings.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key, required this.user});
@@ -45,13 +46,20 @@ class HomeState extends State<Home> {
                       decoration: const BoxDecoration(
                           color: Colors.grey, shape: BoxShape.circle),
                       child: IconButton(
-                          onPressed: () {}, icon: const Icon(Icons.settings)),
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Settings()));
+                          }, 
+                          icon: const Icon(Icons.settings)
+                        ),
                     ),
                     
                   ],
                 ),
-                const Column(
-                  children: [
+                Column(
+                  children: const [
                     SizedBox(
                       height: 80,
                       width: 80,
