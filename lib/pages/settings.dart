@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_firebase_chat/pages/edit_profile.dart';
+import 'package:flutter_firebase_chat/pages/feedback.dart';
 
 class Settings extends StatefulWidget {
   const Settings({super.key});
@@ -14,7 +15,7 @@ class _SettingsState extends State<Settings> {
     return Scaffold(
       backgroundColor: Colors.purple[50],
       appBar: AppBar(
-        backgroundColor: Colors.purple[500],
+        backgroundColor: Color.fromRGBO(147, 51, 234, 1),
         elevation: 0.0,
         title: const Text(
           'Settings',
@@ -78,103 +79,122 @@ class _SettingsState extends State<Settings> {
 
             const SizedBox(height: 20),
 
-            Row(
-              children: [
-                Icon(
-                  Icons.calendar_month,
-                  color: Colors.purple[800],
-                  size: 30,
-                ),
-                const SizedBox(width: 10),
-                const Text(
-                  'Events:',
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16),
-                ),
-                const SizedBox(width: 5),
-                const Text(
-                  'Calender',
-                  style: TextStyle(color: Colors.black, fontSize: 16),
-                ),
-              ],
+            GestureDetector(
+              onTap: () {},
+              child: Row(
+                children: [
+                  Icon(
+                    Icons.calendar_month,
+                    color: Colors.purple[800],
+                    size: 30,
+                  ),
+                  const SizedBox(width: 10),
+                  const Text(
+                    'Events:',
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16),
+                  ),
+                  const SizedBox(width: 5),
+                  const Text(
+                    'Calender',
+                    style: TextStyle(color: Colors.black, fontSize: 16),
+                  ),
+                ],
+              ),
             ),
 
             const SizedBox(height: 20),
 
-            Row(
-              children: [
-                Icon(
-                  Icons.link,
-                  color: Colors.purple[800],
-                  size: 30,
-                ),
-                const SizedBox(width: 10),
-                const Text(
-                  'Link:',
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16),
-                ),
-                const SizedBox(width: 5),
-                const Text(
-                  'Child Class',
-                  style: TextStyle(color: Colors.black, fontSize: 16),
-                ),
-              ],
+            GestureDetector(
+              onTap: () {},
+              child: Row(
+                children: [
+                  Icon(
+                    Icons.link,
+                    color: Colors.purple[800],
+                    size: 30,
+                  ),
+                  const SizedBox(width: 10),
+                  const Text(
+                    'Link:',
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16),
+                  ),
+                  const SizedBox(width: 5),
+                  const Text(
+                    'Child Class',
+                    style: TextStyle(color: Colors.black, fontSize: 16),
+                  ),
+                ],
+              ),
             ),
 
 
             const SizedBox(height: 20),
 
-            Row(
-              children: [
-                Icon(
-                  Icons.report,
-                  color: Colors.purple[800],
-                  size: 30,
-                ),
-                const SizedBox(width: 10),
-                const Text(
-                  'Feedback:',
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16),
-                ),
-                const SizedBox(width: 5),
-                const Text(
-                  'For Improvement',
-                  style: TextStyle(color: Colors.black, fontSize: 16),
-                ),
-              ],
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => UserFeedBack()
+                  )
+                );
+              },
+              child: Row(
+                children: [
+                  Icon(
+                    Icons.report,
+                    color: Colors.purple[800],
+                    size: 30,
+                  ),
+                  const SizedBox(width: 10),
+                  const Text(
+                    'Feedback:',
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16),
+                  ),
+                  const SizedBox(width: 5),
+                  const Text(
+                    'For Improvement',
+                    style: TextStyle(color: Colors.black, fontSize: 16),
+                  ),
+                ],
+              ),
             ),
 
             const SizedBox(height: 20),
 
-            Row(
-              children: [
-                Icon(
-                  Icons.share,
-                  color: Colors.purple[800],
-                  size: 30,
-                ),
-                const SizedBox(width: 10),
-                const Text(
-                  'Share:',
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16),
-                ),
-                const SizedBox(width: 5),
-                const Text(
-                  'with others',
-                  style: TextStyle(color: Colors.black, fontSize: 16),
-                ),
-              ],
+            GestureDetector(
+              onTap: () {},
+              child: Row(
+                children: [
+                  Icon(
+                    Icons.share,
+                    color: Colors.purple[800],
+                    size: 30,
+                  ),
+                  const SizedBox(width: 10),
+                  const Text(
+                    'Share:',
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16),
+                  ),
+                  const SizedBox(width: 5),
+                  const Text(
+                    'with others',
+                    style: TextStyle(color: Colors.black, fontSize: 16),
+                  ),
+                ],
+              ),
             ),
 
             const SizedBox(height: 20),

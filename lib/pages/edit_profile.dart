@@ -19,7 +19,7 @@ class _EditProfileState extends State<EditProfile> {
     return Scaffold(
       backgroundColor: Colors.purple[50],
       appBar: AppBar(
-        backgroundColor: Colors.purple[500],
+        backgroundColor: Color.fromRGBO(147, 51, 234, 1),
         elevation: 0.0,
         title: const Text(
           'Edit Profile',
@@ -31,7 +31,7 @@ class _EditProfileState extends State<EditProfile> {
         child: Column(
           children: [
             Center(
-              child: Stack(alignment: Alignment.bottomRight, children: [
+                child: Stack(alignment: Alignment.bottomRight, children: [
               const SizedBox(
                 height: 100,
                 width: 100,
@@ -47,7 +47,7 @@ class _EditProfileState extends State<EditProfile> {
                   width: 30,
                   height: 30,
                   decoration: BoxDecoration(
-                  color: Colors.purple[600], shape: BoxShape.circle),
+                      color: Colors.purple[600], shape: BoxShape.circle),
                   child: IconButton(
                     icon: const Icon(
                       Icons.edit,
@@ -62,129 +62,123 @@ class _EditProfileState extends State<EditProfile> {
                 ),
               ),
             ])),
-
             const SizedBox(height: 20),
-
             const Divider(
               thickness: 2,
               color: Color.fromRGBO(203, 213, 225, 1),
             ),
-
             const SizedBox(height: 20),
-
             Form(
-              key: _formKey,
-              child: Column(
-                children: [
-                    
-                  TextFormField(
-                    validator: (val) =>
-                        val!.isEmpty ? 'Enter username' : null,
-                    onChanged: (val) {
-                      setState(() => userName = val);
-                    },
-                    decoration: const InputDecoration(
-                      hintText: 'Username',
-                      fillColor: Colors.white,
-                      filled: true,
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.white),
-                        borderRadius: BorderRadius.all(Radius.circular(40.0)),
-                      )
-                    ),
-                  ),
-
-                  const SizedBox(height: 20),
-
-                  TextFormField(
-                    validator: (val) =>
-                        val!.isEmpty ? 'Enter Name' : null,
-                    onChanged: (val) {
-                      setState(() => userName = val);
-                    },
-                    decoration: const InputDecoration(
-                      hintText: 'Full name',
-                      fillColor: Colors.white,
-                      filled: true,
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.white),
-                        borderRadius: BorderRadius.all(Radius.circular(40.0)),
-                      )
-                    ),
-                  ),
-
-                  const SizedBox(height: 20),
-
-                  TextFormField(
-                    validator: (val) =>
-                        val!.isEmpty ? 'Enter email address' : null,
-                    onChanged: (val) {
-                      setState(() => email = val);
-                    },
-                    decoration: const InputDecoration(
-                      hintText: 'Email address',
-                      fillColor: Colors.white,
-                      filled: true,
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.white),
-                        borderRadius: BorderRadius.all(Radius.circular(40.0)),
-                      )
-                    ),
-                  ),
-
-                  const SizedBox(height: 20),
-                  
-                  TextFormField(
-                    validator: (val) =>
-                        val!.isEmpty ? 'Enter phone number' : null,
-                    onChanged: (val) {
-                      setState(() => email = val);
-                    },
-                    keyboardType: TextInputType.number,
-                    decoration: const InputDecoration(
-                      hintText: 'Phone Number',
-                      fillColor: Colors.white,
-                      filled: true,
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.white),
-                        borderRadius: BorderRadius.all(Radius.circular(40.0)),
-                      )
-                    ),
-                  ),
-
-                  const SizedBox(height: 20),
-
-                  SizedBox(
-                    width: 350,
-                    height: 50,
-                    child: TextButton(
-                      onPressed: () async {
-                        if (_formKey.currentState!.validate()) {
-                          // var result = await context
-                          //     .read<AuthService>()
-                          //     .signInWithEmail(email, password);
-                          // if (result == null) {
-                          //   setState(() {
-                          //     error = 'Wrong credentials';
-                          //   });
-                          // }
-                        }
-                      },
-                      style: TextButton.styleFrom(
-                        backgroundColor: Colors.purple[400],
-                        //maximumSize: const Size(10.0, 10.0)
+                key: _formKey,
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: 50,
+                      child: TextFormField(
+                        validator: (val) =>
+                            val!.isEmpty ? 'Enter username' : null,
+                        onChanged: (val) {
+                          setState(() => userName = val);
+                        },
+                        decoration: const InputDecoration(
+                            hintText: 'Username',
+                            fillColor: Colors.white,
+                            filled: true,
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(40.0)),
+                            )),
                       ),
-                      child: const Text(
-                        'Update Profile',
-                        style: TextStyle(color: Colors.white, fontSize: 16),
-                      )
                     ),
-                  ),
-
-                ],
-              )
-            )
-
+                    const SizedBox(height: 20),
+                    SizedBox(
+                      height: 50,
+                      child: TextFormField(
+                        validator: (val) => val!.isEmpty ? 'Enter Name' : null,
+                        onChanged: (val) {
+                          setState(() => userName = val);
+                        },
+                        decoration: const InputDecoration(
+                            hintText: 'Full name',
+                            fillColor: Colors.white,
+                            filled: true,
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(40.0)),
+                            )),
+                      ),
+                    ),
+                    const SizedBox(height: 20),
+                    SizedBox(
+                      height: 50,
+                      child: TextFormField(
+                        validator: (val) =>
+                            val!.isEmpty ? 'Enter email address' : null,
+                        onChanged: (val) {
+                          setState(() => email = val);
+                        },
+                        decoration: const InputDecoration(
+                            hintText: 'Email address',
+                            fillColor: Colors.white,
+                            filled: true,
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(40.0)),
+                            )),
+                      ),
+                    ),
+                    const SizedBox(height: 20),
+                    SizedBox(
+                      height: 50,
+                      child: TextFormField(
+                        validator: (val) =>
+                            val!.isEmpty ? 'Enter phone number' : null,
+                        onChanged: (val) {
+                          setState(() => email = val);
+                        },
+                        keyboardType: TextInputType.number,
+                        decoration: const InputDecoration(
+                            hintText: 'Phone number',
+                            fillColor: Colors.white,
+                            filled: true,
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(40.0)),
+                            )),
+                      ),
+                    ),
+                    const SizedBox(height: 20),
+                    SizedBox(
+                      width: 350,
+                      height: 50,
+                      child: TextButton(
+                          onPressed: () async {
+                            if (_formKey.currentState!.validate()) {
+                              // var result = await context
+                              //     .read<AuthService>()
+                              //     .signInWithEmail(email, password);
+                              // if (result == null) {
+                              //   setState(() {
+                              //     error = 'Wrong credentials';
+                              //   });
+                              // }
+                            }
+                          },
+                          style: TextButton.styleFrom(
+                            backgroundColor: Colors.purple[400],
+                            //maximumSize: const Size(10.0, 10.0)
+                          ),
+                          child: const Text(
+                            'Update Profile',
+                            style: TextStyle(color: Colors.white, fontSize: 16),
+                          )),
+                    ),
+                  ],
+                ))
           ],
         ),
       ),

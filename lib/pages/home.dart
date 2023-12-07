@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_firebase_chat/modals/user_modal.dart';
 import 'package:flutter_firebase_chat/pages/groups/index.dart';
 import 'package:flutter_firebase_chat/pages/levels.dart';
-import 'package:flutter_firebase_chat/pages/profile.dart';
-import 'package:flutter_firebase_chat/services/auth_service.dart';
-import 'package:provider/provider.dart';
 import 'package:flutter_firebase_chat/pages/settings.dart';
+// import 'package:flutter_firebase_chat/pages/profile.dart';
+// import 'package:flutter_firebase_chat/services/auth_service.dart';
+// import 'package:provider/provider.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key, required this.user});
