@@ -16,7 +16,7 @@ class Wrapper extends StatefulWidget {
 class _WrapperState extends State<Wrapper> {
   bool showSignIn = true;
 
-  void toggleView () {
+  void toggleView() {
     setState(() => showSignIn = !showSignIn);
   }
 
@@ -24,7 +24,7 @@ class _WrapperState extends State<Wrapper> {
   Widget build(BuildContext context) {
     //final user = Provider.of<AuthService?>(context)!.userProp;
     UserModal? user = context.watch<AuthService>().myUserProp;
-
+    // print('user== $user');
     if (user == null) {
       if (showSignIn) {
         return SignIn(toggleView: toggleView);

@@ -28,7 +28,7 @@ class _EditProfileState extends State<EditProfile> {
       ),
       body: Padding(
         padding: EdgeInsets.fromLTRB(20, 20, 20, 0),
-        child: Column(
+        child: ListView(
           children: [
             Center(
                 child: Stack(alignment: Alignment.bottomRight, children: [
@@ -152,6 +152,9 @@ class _EditProfileState extends State<EditProfile> {
                       ),
                     ),
                     const SizedBox(height: 20),
+
+                    
+
                     SizedBox(
                       width: 350,
                       height: 50,
@@ -185,3 +188,4 @@ class _EditProfileState extends State<EditProfile> {
     );
   }
 }
+

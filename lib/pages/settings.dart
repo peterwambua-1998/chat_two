@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_firebase_chat/pages/edit_profile.dart';
 import 'package:flutter_firebase_chat/pages/feedback.dart';
+import 'package:flutter_firebase_chat/pages/link_child.dart';
+import 'package:flutter_firebase_chat/services/auth_service.dart';
+import 'package:provider/provider.dart';
+import 'package:share_plus/share_plus.dart';
 
 class Settings extends StatefulWidget {
   const Settings({super.key});
@@ -24,7 +28,7 @@ class _SettingsState extends State<Settings> {
       ),
       body: Padding(
         padding: EdgeInsets.fromLTRB(20, 15, 20, 0),
-        child: Column(
+        child: ListView(
           children: <Widget>[
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -54,7 +58,7 @@ class _SettingsState extends State<Settings> {
                     ),
                     TextButton(
                         onPressed: () {
-                           Navigator.push(
+                          Navigator.push(
                               context,
                               MaterialPageRoute(
                                   builder: (context) => EditProfile()));
@@ -76,9 +80,7 @@ class _SettingsState extends State<Settings> {
               thickness: 2,
               color: Color.fromRGBO(203, 213, 225, 1),
             ),
-
             const SizedBox(height: 20),
-
             GestureDetector(
               onTap: () {},
               child: Row(
@@ -104,11 +106,12 @@ class _SettingsState extends State<Settings> {
                 ],
               ),
             ),
-
             const SizedBox(height: 20),
-
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const LinkChild()));
+              },
               child: Row(
                 children: [
                   Icon(
@@ -132,18 +135,11 @@ class _SettingsState extends State<Settings> {
                 ],
               ),
             ),
-
-
             const SizedBox(height: 20),
-
             GestureDetector(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => UserFeedBack()
-                  )
-                );
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => UserFeedBack()));
               },
               child: Row(
                 children: [
@@ -168,11 +164,12 @@ class _SettingsState extends State<Settings> {
                 ],
               ),
             ),
-
             const SizedBox(height: 20),
-
             GestureDetector(
-              onTap: () {},
+              onTap: ()  {
+                //await Share.share('com.example.flutter_firebase_chat');
+                //await Share.shareWithResult('com.example.flutter_firebase_chat');
+              },
               child: Row(
                 children: [
                   Icon(
@@ -196,16 +193,12 @@ class _SettingsState extends State<Settings> {
                 ],
               ),
             ),
-
             const SizedBox(height: 20),
-
             const Divider(
               thickness: 2,
               color: Color.fromRGBO(203, 213, 225, 1),
             ),
-
             const SizedBox(height: 20),
-
             Row(
               children: [
                 Icon(
@@ -221,12 +214,9 @@ class _SettingsState extends State<Settings> {
                       fontWeight: FontWeight.bold,
                       fontSize: 16),
                 ),
-                
               ],
             ),
-
             const SizedBox(height: 20),
-
             Row(
               children: [
                 Icon(
@@ -244,27 +234,29 @@ class _SettingsState extends State<Settings> {
                 ),
               ],
             ),
-
             const SizedBox(height: 20),
-
-            Row(
-              children: [
-                Icon(
-                  Icons.exit_to_app,
-                  color: Colors.purple[900],
-                  size: 30,
-                ),
-                const SizedBox(width: 10),
-                const Text(
-                  'Logout',
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16),
-                ),
-              ],
+            GestureDetector(
+              onTap: () async {
+                await context.read<AuthService>().signOut();
+              },
+              child: Row(
+                children: [
+                  Icon(
+                    Icons.exit_to_app,
+                    color: Colors.purple[900],
+                    size: 30,
+                  ),
+                  const SizedBox(width: 10),
+                  const Text(
+                    'Logout',
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16),
+                  ),
+                ],
+              ),
             ),
-
           ],
         ),
       ),

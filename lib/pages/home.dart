@@ -27,186 +27,130 @@ class HomeState extends State<Home> {
         child: AppBars(),
       ),
       body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-        Container(
-          height: 120,
-          color: Colors.purple[800],
-          child: Padding(
-            padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Container(
+              height: 120,
+              color: Colors.purple[800],
+              child: Padding(
+                padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    SizedBox(
-                      height: 25,
-                    ),
-                    Container(
-                      decoration: const BoxDecoration(
-                          color: Colors.grey, shape: BoxShape.circle),
-                      child: IconButton(
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => Settings()));
-                          }, 
-                          icon: const Icon(Icons.settings)
+                    Column(
+                      children: [
+                        SizedBox(
+                          height: 25,
                         ),
+                        Container(
+                          decoration: BoxDecoration(
+                              color: Colors.purple[200],
+                              shape: BoxShape.circle),
+                          child: IconButton(
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => Settings()));
+                              },
+                              icon: const Icon(
+                                Icons.settings,
+                                color: Colors.black,
+                              )),
+                        ),
+                      ],
                     ),
-                    
+                    Column(
+                      children: const [
+                        SizedBox(
+                          height: 80,
+                          width: 80,
+                          child: CircleAvatar(
+                            backgroundImage:
+                                const AssetImage('assets/profile.jpg'),
+                            radius: 48,
+                          ),
+                        ),
+                        Text(
+                          'Welcome Back',
+                          style: TextStyle(
+                              color: Colors.white, fontWeight: FontWeight.bold),
+                        )
+                      ],
+                    ),
                   ],
                 ),
-                Column(
-                  children: const [
-                    SizedBox(
-                      height: 80,
-                      width: 80,
-                      child: CircleAvatar(
-                        backgroundImage: const AssetImage('assets/profile.jpg'),
-                        radius: 48,
+              ),
+            ),
+            const Padding(
+              padding: EdgeInsets.fromLTRB(20, 5, 5, 5),
+              child: Text(
+                'Schools',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.fromLTRB(20, 5, 20, 0),
+              child: Column(
+                children: [
+                  // SizedBox(
+                  //   child: ListTile(
+                  //     title: const Text('Groups'),
+                  //     subtitle: const Text('view levels under this school'),
+                  //     contentPadding: const EdgeInsets.all(15.0),
+                  //     leading: const Icon(
+                  //       Icons.wechat,
+                  //       size: 50.0,
+                  //       color: Color.fromARGB(255, 99, 141, 102),
+                  //     ),
+                  //     shape: RoundedRectangleBorder(
+                  //       side: BorderSide(width: 2, color: Colors.green),
+                  //       borderRadius: BorderRadius.circular(10), //<-- SEE HERE
+                  //     ),
+                  //     tileColor: const Color.fromARGB(255, 204, 215, 200),
+                  //     onTap: () {
+                  //       Navigator.push(context,
+                  //           MaterialPageRoute(builder: (context) => Levels()));
+                  //     },
+                  //   ),
+                  // ),
+
+                  Card(
+                    clipBehavior: Clip.hardEdge,
+                    child: InkWell(
+                      splashColor: Colors.blue.withAlpha(30),
+                      onTap: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => Levels()));
+                      },
+                      child: const SizedBox(
+                        height: 100,
+                        child: Column(
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                              child: ListTile(
+                                leading: Icon(
+                                  Icons.wechat,
+                                  size: 30.0,
+                                ),
+                                title: Text('Thormas Burke Primary School'),
+                                subtitle: Text(
+                                    'View chat levels under this school.'),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                    Text(
-                      'Welcome Back',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold
-                      ),
-                    )
-                  ],
-                ),
-              ],
-            ),
-          ),
-        ),
-        const Padding(
-          padding: EdgeInsets.fromLTRB(20, 5, 5, 5),
-          child:  Text(
-            'Schools',
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 20.0
-            ),
-          ),
-        ),
-        Padding(
-          padding: EdgeInsets.fromLTRB(20, 5, 20, 0),
-          child: Column(
-            children: [
-              Container(
-                height: 80,
-                child: ListTile(
-                  visualDensity: VisualDensity(vertical: -4),
-                  title: const Text('Groups'),
-                  subtitle: const Text('view groups'),
-                  contentPadding: const EdgeInsets.all(15.0),
-                  leading: const Icon(
-                    Icons.wechat,
-                    size: 50.0,
-                    color: Color.fromARGB(255, 99, 141, 102),
                   ),
-                  shape: RoundedRectangleBorder(
-                    side: BorderSide(width: 2, color: Colors.green),
-                    borderRadius: BorderRadius.circular(10), //<-- SEE HERE
-                  ),
-                  tileColor: const Color.fromARGB(255, 204, 215, 200),
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => Levels()));
-                  },
-                ),
+                ],
               ),
-              SizedBox(height: 10,),
-              Container(
-                height: 80,
-                child: ListTile(
-                  visualDensity: VisualDensity(vertical: -4),
-                  title: const Text('Groups'),
-                  subtitle: const Text('view groups'),
-                  contentPadding: const EdgeInsets.all(15.0),
-                  leading: const Icon(
-                    Icons.wechat,
-                    size: 50.0,
-                    color: Color.fromARGB(255, 99, 141, 102),
-                  ),
-                  shape: RoundedRectangleBorder(
-                    side: BorderSide(width: 2, color: Colors.green),
-                    borderRadius: BorderRadius.circular(10), //<-- SEE HERE
-                  ),
-                  tileColor: const Color.fromARGB(255, 204, 215, 200),
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => GroupIndex(user: widget.user)));
-                  },
-                ),
-              ),
-              SizedBox(height: 10,),
-              Container(
-                height: 80,
-                child: ListTile(
-                  visualDensity: VisualDensity(vertical: -4),
-                  title: const Text('Groups'),
-                  subtitle: const Text('view groups'),
-                  contentPadding: const EdgeInsets.all(15.0),
-                  leading: const Icon(
-                    Icons.wechat,
-                    size: 50.0,
-                    color: Color.fromARGB(255, 99, 141, 102),
-                  ),
-                  shape: RoundedRectangleBorder(
-                    side: BorderSide(width: 2, color: Colors.green),
-                    borderRadius: BorderRadius.circular(10), //<-- SEE HERE
-                  ),
-                  tileColor: const Color.fromARGB(255, 204, 215, 200),
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => GroupIndex(user: widget.user)));
-                  },
-                ),
-              ),
-              SizedBox(height: 10,),
-              Container(
-                height: 80,
-                child: ListTile(
-                  visualDensity: VisualDensity(vertical: -4),
-                  title: const Text('Groups'),
-                  subtitle: const Text('view groups'),
-                  contentPadding: const EdgeInsets.all(15.0),
-                  leading: const Icon(
-                    Icons.wechat,
-                    size: 50.0,
-                    color: Color.fromARGB(255, 99, 141, 102),
-                  ),
-                  shape: RoundedRectangleBorder(
-                    side: BorderSide(width: 2, color: Colors.green),
-                    borderRadius: BorderRadius.circular(10), //<-- SEE HERE
-                  ),
-                  tileColor: const Color.fromARGB(255, 204, 215, 200),
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => GroupIndex(user: widget.user)));
-                  },
-                ),
-              ),
-            ],
-          ),
-        )
-      ]),
+            )
+          ]),
     );
   }
 }
-
-
 
 class AppBars extends StatelessWidget {
   const AppBars({
